@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="50" height="100" tilewidth="32" tileheight="32" nextobjectid="1">
+ <tileset firstgid="1" name="irukaJetMap" tilewidth="32" tileheight="32" tilecount="13">
+  <image source="irukaJetMap.png" width="32" height="416"/>
+  <tile id="0">
+   <properties>
+    <property name="category" value="0"/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="category" value="0"/>
+   </properties>
+  </tile>
+  <tile id="2">
+   <properties>
+    <property name="category" value="0"/>
+   </properties>
+  </tile>
+  <tile id="3">
+   <properties>
+    <property name="category" value="0"/>
+   </properties>
+  </tile>
+  <tile id="4">
+   <properties>
+    <property name="category" value="0"/>
+   </properties>
+  </tile>
+  <tile id="5">
+   <properties>
+    <property name="category" value="0"/>
+   </properties>
+  </tile>
+  <tile id="6">
+   <properties>
+    <property name="category" value="0"/>
+   </properties>
+  </tile>
+  <tile id="7">
+   <properties>
+    <property name="category" value="0"/>
+   </properties>
+  </tile>
+  <tile id="8">
+   <properties>
+    <property name="category" value="1"/>
+   </properties>
+  </tile>
+  <tile id="9">
+   <properties>
+    <property name="category" value="1"/>
+   </properties>
+  </tile>
+  <tile id="10">
+   <properties>
+    <property name="category" value="1"/>
+   </properties>
+  </tile>
+  <tile id="11">
+   <properties>
+    <property name="category" value="1"/>
+   </properties>
+  </tile>
+  <tile id="12">
+   <properties>
+    <property name="category" value="1"/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer name="Terrain" width="50" height="100">
+  <data encoding="base64" compression="zlib">
+   eJztm9tuKyEMRaeXtE3b/P/vNkhFosj4xja4ymyJh6PTybAw2GA81+M4rkx7Pub1JLwD1T7v7WXQLok5Sr+/mn8jxlzDMRqvti+Wcb4cf8comuPt4G0r2Yvr30oOSRk53u/t47e9Kp/JyOH53ZMjjqOuaYvPzsjhEYrjdtjWJVrFhlwM0XK0PFEskh/jbGLliJxj0jwe2aTEcm6djThuqI4z7xuNFdUnaVw5O0bML40fa/9G6/MkHxG5VpDS7KV3+2ONHoljd1zRyHJGqzzeFjkOq87M1DgguSwc3PldalRsQ/pCDUft/0yuoY8JlQvFInFI+wHEexEsHEcUQ1G/j5ploTgQ80ijOtcQc6zniLTBSK1tvCwtxw6GqlmWrOdaK0smjn7tW/qTiaPIO78QHPXMjYrNHhYvR5sv+HY8j+6X5e+pvkedU1qboDhq/6m+R55Tat80c8ubv+Aayi6WuZKZw5Ijzsxh0cnBr/fVOYkIjh022cnhuUMcaScHcm8XxYGKXVpFcVQWLl/luUPcwbFy7a/kiPTHGg7p/jEDi3atafJ12vqdCBYUx+jOcsTU+gB0XtTLockXRTMhOKx+KIJpB0erPjdKMSHzDJzPQsQFjY04Hu/Z0bI2iix7whETd6/X5g4kDsomntoq6pkRpyd2afrU3yt5aquo93D/b2WJ3P9Ie0IL504OSRKnxSYZ8tS9pBzmCg7EuTVDbgBx3vtvHJzftdYZoDnQec3I51FCcszW88zU+MzmHKLrfVbVbiE4+jMtFa9WfSMz6pOm9fOgjb2rajyi6hksd2LI96Ftj/QfkffOkpA5r9U5b+63pXXn/c6AetfOfcmo7i8Dh/Uuv3/WEhej9yXSN4MoZdlfzeoROZD3kmihazi0Qo/JLg70fH5Ejpl4QP1W1Df6lriZzbedHLl0csypjR+Is5SXI+J7DSnvgrpXK0L5Xs95kau7sXKU+YCqn+buaq3n3cj6a620uWgu35SBA6GT4+SIkJdj5zdhlB59XxJx5zPTLPUlPXfG9gMrgDFN
+  </data>
+ </layer>
+</map>
