@@ -28,5 +28,37 @@ package org.cocos2dx.cpp;
 
 import org.cocos2dx.lib.Cocos2dxActivity;
 
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
+
 public class AppActivity extends Cocos2dxActivity {
+	private static AppActivity me = null;
+
+    protected void onCreate(Bundle savedInstanceState) {
+       super.onCreate(savedInstanceState);
+        me = this;   // => added!
+    }
+
+    /**
+     * URL開く
+     * @param url
+     */
+    public static void openURL(String url) { 
+        Intent i = new Intent(Intent.ACTION_VIEW);  
+        i.setData(Uri.parse(url));
+        me.startActivity(i);
+    }
+    /**
+     * ツイッター用
+     * @param tweet
+     */
+    public static void openTweetDialog(String tweet)
+    {
+    	String url = String.format("http://twitter.com/home?status=%s", tweet);
+    	url = url.replaceAll("#", "%23");
+    	
+    	Intent i = new Intent(Intent.ACTION_VIEW,Uri.parse(url));
+        me.startActivity(i);
+    }
 }

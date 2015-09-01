@@ -91,6 +91,10 @@ public:
 	*/
 	virtual void applicationScreenSizeChanged(int newWidth, int newHeight);
 
+	//TODO
+	virtual void openURL(const char* pszUrl);
+	virtual void openTweetDialog(const char* pszUrl);
+
 protected:
     static Application * sm_pSharedApplication;
 };

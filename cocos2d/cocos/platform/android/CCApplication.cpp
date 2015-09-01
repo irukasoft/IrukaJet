@@ -172,6 +172,34 @@ void Application::applicationScreenSizeChanged(int newWidth, int newHeight) {
 
 }
 
+void Application::openURL(const char* pszUrl) {
+    JniMethodInfo minfo;
+    if(JniHelper::getStaticMethodInfo(minfo,
+        "org/cocos2dx/cpp/AppActivity",
+        "openURL",
+        "(Ljava/lang/String;)V"))
+    {
+        jstring StringArg1 = minfo.env->NewStringUTF(pszUrl);
+        minfo.env->CallStaticVoidMethod(minfo.classID, minfo.methodID, StringArg1);
+        minfo.env->DeleteLocalRef(StringArg1);
+        minfo.env->DeleteLocalRef(minfo.classID);
+    }
+}
+
+void Application::openTweetDialog(const char* pszUrl) {
+    JniMethodInfo minfo;
+    if(JniHelper::getStaticMethodInfo(minfo,
+        "org/cocos2dx/cpp/AppActivity",
+        "openTweetDialog",
+        "(Ljava/lang/String;)V"))
+    {
+        jstring StringArg1 = minfo.env->NewStringUTF(pszUrl);
+        minfo.env->CallStaticVoidMethod(minfo.classID, minfo.methodID, StringArg1);
+        minfo.env->DeleteLocalRef(StringArg1);
+        minfo.env->DeleteLocalRef(minfo.classID);
+    }
+}
+
 NS_CC_END
 
 #endif // CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID

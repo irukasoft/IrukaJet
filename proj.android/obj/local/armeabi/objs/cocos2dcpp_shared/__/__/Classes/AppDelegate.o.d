@@ -315,8 +315,7 @@
   jni/../../cocos2d/cocos/./deprecated/CCBool.h \
   jni/../../cocos2d/cocos/./deprecated/CCNotificationCenter.h \
   jni/../../cocos2d/cocos/./deprecated/CCDeprecated.h \
-  jni/../../Classes/GameScene.h jni/../../Classes/Stage.h \
-  jni/../../Classes/Player.h
+  jni/../../Classes/TitleScene.h
 
 jni/../../Classes/AppDelegate.h:
 
@@ -950,8 +949,4 @@ jni/../../cocos2d/cocos/./deprecated/CCNotificationCenter.h:
 
 jni/../../cocos2d/cocos/./deprecated/CCDeprecated.h:
 
-jni/../../Classes/GameScene.h:
-
-jni/../../Classes/Stage.h:
-
-jni/../../Classes/Player.h:
+jni/../../Classes/TitleScene.h:

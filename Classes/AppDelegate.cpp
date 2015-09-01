@@ -1,5 +1,5 @@
 #include "AppDelegate.h"
-#include "GameScene.h"
+#include "TitleScene.h"
 
 USING_NS_CC;
 //初回ステージ番号
@@ -23,10 +23,14 @@ bool AppDelegate::applicationDidFinishLaunching() {
     }
 
     // turn on display FPS
-    director->setDisplayStats(true);
+    director->setDisplayStats(false);
 
     // set FPS. the default value is 1.0/60 if you don't call this
     director->setAnimationInterval(1.0 / 60);
+
+    //ちらつき防止
+    director->getInstance()->setProjection(Director::Projection::_2D);
+    director->getInstance()->setDepthTest(false);
 
     //全てを540 * 960 で
     glview->setDesignResolutionSize(540, 960, ResolutionPolicy::SHOW_ALL);
@@ -34,7 +38,8 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
     // create a scene. it's an autorelease object
     //auto scene = TitleScene::createScene();
-    auto scene = GameScene::createWithLevel(INITIAL_LEVEL);
+    //auto scene = GameScene::createWithLevel(INITIAL_LEVEL);
+    auto scene = TitleScene::createScene();
 
     // run
     director->runWithScene(scene);

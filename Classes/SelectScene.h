@@ -13,7 +13,9 @@ protected:
 public:
 	static cocos2d::Scene* createScene();
 	CREATE_FUNC(SelectScene);
-
+    CC_SYNTHESIZE(int, _level, Level);
+private:
+	void onGameStart(int level);
 };
 
 #endif /* defined(__IrukaJet__SelectScene__) */

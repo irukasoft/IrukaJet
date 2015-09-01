@@ -171,6 +171,20 @@ void Application::applicationScreenSizeChanged(int newWidth, int newHeight) {
 
 }
 
+// TODO
+void Application::openURL(const char *urlStr) {
+    NSString* str = [NSString stringWithUTF8String:urlStr];
+    NSURL* url = [NSURL URLWithString:str];
+    [[UIApplication sharedApplication] openURL:url];
+}
+void Application::openTweetDialog(const char *urlStr) {
+    NSString* tweet = [NSString stringWithUTF8String:urlStr];
+    tweet = [NSString stringWithFormat:@"http://twitter.com/home?status=%@",tweet];
+    tweet = [tweet stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSURL *url = [NSURL URLWithString:tweet];
+    [[UIApplication sharedApplication] openURL:url];
+}
+
 NS_CC_END
 
 #endif // CC_PLATFORM_IOS

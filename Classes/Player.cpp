@@ -6,9 +6,15 @@ USING_NS_CC;
 //アニメーションが何フレームあるか
 const int FRAME_COUNT = 4;
 //上方向の速度の最大値
-const int ACCELERATION_LIMIT = 30;
+const int ACCELERATION_LIMIT_UP = 45;
+//下方向の速度の最大値
+const int ACCELERATION_LIMIT_BTM = -45;
+//右方向の速度の最大値
+const int ACCELERATION_LIMIT_RIGHT = 45;
+//左方向の速度の最大値
+const int ACCELERATION_LIMIT_LEFT = -45;
 //初期ジェット加速度
-const Vec2 INITIAL_ACCELERATION = Vec2(0, 200);
+//const Vec2 INITIAL_ACCELERATION = Vec2(0, 200);
 
 bool Player::init()
 {
@@ -46,7 +52,7 @@ bool Player::init()
     body->setContactTestBitmask(INT_MAX);
 
     // 初期加速度を設定する
-    _acceleration = INITIAL_ACCELERATION;
+ //   _acceleration = INITIAL_ACCELERATION;
 
     this->scheduleUpdate();
 
@@ -58,13 +64,19 @@ bool Player::init()
 
 void Player::update(float dt){
 	this->getPhysicsBody()->applyImpulse(_acceleration);
-    // 縦方向の加速度がACCELERATION_LIMIT以上になったら越えないようにする
+    // 加速度のLIMITの設定
     auto v = this->getPhysicsBody()->getVelocity();
-    if (v.y > ACCELERATION_LIMIT) {
-        v.y = ACCELERATION_LIMIT;
+    if (v.y > ACCELERATION_LIMIT_UP) {
+        v.y = ACCELERATION_LIMIT_UP;
     }
-    if (v.y > ACCELERATION_LIMIT) {
-        v.y = ACCELERATION_LIMIT;
+    if (v.y < ACCELERATION_LIMIT_BTM) {
+        v.y = ACCELERATION_LIMIT_BTM;
+    }
+    if (v.x > ACCELERATION_LIMIT_RIGHT) {
+        v.x = ACCELERATION_LIMIT_RIGHT;
+    }
+    if (v.x < ACCELERATION_LIMIT_LEFT) {
+        v.x = ACCELERATION_LIMIT_LEFT;
     }
     this->getPhysicsBody()->setVelocity(v);
 }

@@ -16,7 +16,6 @@ Stage::~Stage()
 	CC_SAFE_RELEASE_NULL(_tiledMap);
 	CC_SAFE_RELEASE_NULL(_player);
 }
-//bool Stage::init()
 bool Stage::initWithLevel(int level)
 {
     if ( !Layer::init() )
@@ -27,7 +26,6 @@ bool Stage::initWithLevel(int level)
     _level = level;
 
     //マップファイルからノードを作成する
-    //auto map = TMXTiledMap::create("map/stage01.tmx");
     auto stageFile = StringUtils::format(STAGE_FILE_FORMAT, level);
     auto map = TMXTiledMap::create(stageFile);
     this->addChild(map);
@@ -35,8 +33,8 @@ bool Stage::initWithLevel(int level)
 
     //地形レイヤーを取得
     auto terrainLayer = map->getLayer("Terrain");
-    //TODO オブジェクトレイアー取得
-    //auto objectLayer = map->getLayer("Object");
+    //オブジェクトレイアー取得
+    auto objectLayer = map->getLayer("Object");
 
     //マップのサイズ
     auto mapSize = map->getMapSize();
@@ -45,7 +43,9 @@ bool Stage::initWithLevel(int level)
     		auto coordinate = Vec2(x, y);
 
     		this->addPhysicsBody(terrainLayer, coordinate);
-    		// TODO this->addPhysicsBody(objectLayer, coordinate);
+    		if (objectLayer != nullptr) {
+        		this->addPhysicsBody(objectLayer, coordinate);
+    		}
     	}
     }
 
@@ -103,6 +103,11 @@ Sprite* Stage::addPhysicsBody(cocos2d::TMXLayer *layer, cocos2d::Vec2& coordinat
 
 		//剛体をSpriteにつける
 		sprite->setPhysicsBody(physicsBody);
+		auto thisPos = sprite->getPosition();
+		//スプライトのズレを修正
+		sprite->setPosition(Vec2(
+				thisPos.x + sprite->getContentSize().width/2.0,
+				thisPos.y + sprite->getContentSize().height/2.0));
 
 		return sprite;
 	}
