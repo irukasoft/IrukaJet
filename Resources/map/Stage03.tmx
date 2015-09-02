@@ -83,7 +83,7 @@
  </tileset>
  <layer name="Object" width="18" height="40">
   <data encoding="base64" compression="zlib">
-   eJzl0sENACAIBEEqsP9yrQAF3SAgXy/jGRHRZyzOvOOxdlmrZclRFtnJOhktwqnUhfj36B28vaeS8dLR8pTjtcj96dzpJP+T08mIdohMpndn6kI5HmMCUrcC9Q==
+   eJzlltsNACAIA5nA/cd1AhT0okX7a3M28ohmvtrgLKsMa+aNsiI+ikVmikqRRXAqZSHqfroHd++pxLjJ8fwUJ8si++flTCv+KhxCKrOt9rbUf+O3Pa/GyTA6JFcC5w==
   </data>
  </layer>
  <layer name="Terrain" width="18" height="40">
@@ -96,7 +96,7 @@
  </layer>
  <layer name="ObjectVisable" width="18" height="40">
   <data encoding="base64" compression="zlib">
-   eJzt1FEKACAIA1BP0P2P228IoWNTDBr0J69Azeye5Q4TxIlqVA5Sk3mTwsmkoieMVeEwUTtRDet070Xmngk9mDyfTL9UjrcY57QyjmqelfsVvQlxXpy3ToeJ8p9SpNP5//x8B9mXDVqABvM=
+   eJzt1FEKACAIA1BP0P2P228I4WRTDBr0J69Azeye5Q6TjBPVqJxMDfImhYOkoieMVeEwUTtRDet07wVyz4QeTJ5Ppl8qx1uMc1qIo5pn5X5Fb8o4L84b4jDp/FdRR5FO5//z853M3m0sIAbl
   </data>
  </layer>
  <layer name="TerrainVisable" width="18" height="40">

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="25" height="50" tilewidth="32" tileheight="32" nextobjectid="1">
+ <tileset firstgid="1" name="irukaJetMap" tilewidth="32" tileheight="32" tilecount="13">
+  <image source="irukaJetMap.png" width="32" height="416"/>
+  <tile id="0">
+   <properties>
+    <property name="category" value="0"/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="category" value="0"/>
+   </properties>
+  </tile>
+  <tile id="2">
+   <properties>
+    <property name="category" value="0"/>
+   </properties>
+  </tile>
+  <tile id="3">
+   <properties>
+    <property name="category" value="0"/>
+   </properties>
+  </tile>
+  <tile id="4">
+   <properties>
+    <property name="category" value="0"/>
+   </properties>
+  </tile>
+  <tile id="5">
+   <properties>
+    <property name="category" value="0"/>
+   </properties>
+  </tile>
+  <tile id="6">
+   <properties>
+    <property name="category" value="0"/>
+   </properties>
+  </tile>
+  <tile id="7">
+   <properties>
+    <property name="category" value="0"/>
+   </properties>
+  </tile>
+  <tile id="8">
+   <properties>
+    <property name="category" value="1"/>
+   </properties>
+  </tile>
+  <tile id="9">
+   <properties>
+    <property name="category" value="0"/>
+   </properties>
+  </tile>
+  <tile id="10">
+   <properties>
+    <property name="category" value="0"/>
+   </properties>
+  </tile>
+  <tile id="11">
+   <properties>
+    <property name="category" value="0"/>
+   </properties>
+  </tile>
+  <tile id="12">
+   <properties>
+    <property name="category" value="0"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="14" name="irukaJetObject" tilewidth="32" tileheight="32" tilecount="2">
+  <image source="irukaJetObject.png" width="32" height="64"/>
+  <tile id="0">
+   <properties>
+    <property name="category" value="4"/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="category" value="1"/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer name="Object" width="25" height="50">
+  <data encoding="base64" compression="zlib">
+   eJztlksOgCAMRHsCe//buiIhRMn0Myikk7Br3xOiRRWRS/jZ1TEyT3KMK9vBiMex4rkqFWv++r3s5sjyo5zIzER61MlGHVE+6ohm5sjYA8PxVP+1w5Ny4LVvNdqt2b9WxIHEMtc87OzzjNRbe9h3l4ff3hkWvzkQNpvvTcb9cjKf6ejnGpO/G3sVv3Jebtq9BUE=
+  </data>
+ </layer>
+ <layer name="Terrain" width="25" height="50">
+  <data encoding="base64" compression="zlib">
+   eJztlcENACAIA/m6/8KugNiCYC/xaS+KoFkNC7BEH7LqhXgn3j3RM/2Qf9Oj3vwoL+RHc5mzj9mj7Jld9T/IhXFN8ogZdJ6Hgsvk2rHPlnF3csghx7kD6ZbDzwZ8lwK/
+  </data>
+ </layer>
+ <layer name="ObjectVisable" width="25" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzt1UEKwCAMRNGcIN7/tt0WsY3GTIvwP7iTeeBGM4pyDAwiIqIgN/3/gYHRuuPdURhtcEdhVKfevxun9PWbVxuj/Urjab/KeNs/xYj2d4yZ7ayxsp0xMvuzhupN6L8uEf0IYg==
+  </data>
+ </layer>
+ <layer name="TerrainVisable" width="25" height="50">
+  <data encoding="base64" compression="zlib">
+   eJztl20PgjAMhCsiLwL//+8Kkcam2UavdMYQm9wXze4pY+mNgYha+tRt1VhBjWJEVInRrboHacowIkvu+zcYy6pBqC2s8zK0NBPl9vuaucBgybLuZ797k8GfGU96n5FHRX+L95X8a+w92j/SO59LPpsW/xH0n9Vvnrlb6h3pG2Ho3iPyQ1cqT6IZqTyZHDx0tjMXYXnzQ7NqMBBWVA52BU5k1sozcsU7w68weGYhdwcrQ89D5JktDD0PkXy0MGSGovloYWh/1Dt1h2vU/2f9U3eIJsH2+G/FeaMZi2J7/bfKzRLp7Xm3uZLvnOhc70eMWv6aUXte/Rl/hqfk94IUz44cI7Ump6PvqBQjN9e8ujojyn/TCwxKEEE=
+  </data>
+ </layer>
+</map>

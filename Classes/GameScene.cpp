@@ -1,5 +1,4 @@
 #include "GameScene.h"
-//#include "BrowserLauncher.h"
 #include "SelectScene.h"
 
 USING_NS_CC;
@@ -66,10 +65,14 @@ bool GameScene::initWithLevel(int level)
     {
         return false;
     }
+    //=======================
     //画像サイズ取り出し
+    //-----------------------
     auto winSize = Director::getInstance()->getWinSize();
 
+    //=======================
     //ステージ作成
+    //-----------------------
     auto stage = Stage::createWithLevel(level);
     this->setStage(stage);
     _thisLevel = level;
@@ -86,10 +89,13 @@ bool GameScene::initWithLevel(int level)
     this->setParallaxNode(parallaxNode);
     this->addChild(parallaxNode);
 
+    //=======================
     //マップのサイズ取得
+    //-----------------------
     auto mapSize = stage->getTiledMap()->getContentSize();
     //背景画像のサイズ取得
     auto backgroundSize = background->getContentSize();
+
     //スクロールの割合計算
     auto scrollRatioW = (backgroundSize.width - winSize.width) / mapSize.width;
     auto scrollRatioH = (backgroundSize.height - winSize.height) / mapSize.height;
@@ -97,26 +103,6 @@ bool GameScene::initWithLevel(int level)
 
     this->addChild(stage);
 
-    //=======================
-    //画面をタッチしたときにタッチされている処理
-    //-----------------------
-    auto listener = EventListenerTouchOneByOne::create();
-    listener->onTouchBegan = [this](Touch *touch, Event *event) {
-    	_touchPoint = touch->getLocation();
-    	this->setIsPress(true);
-    	return true;
-    };
-    listener->onTouchMoved = [this](Touch *touch, Event *event) {
-    	_touchPoint = touch->getLocation();
-    	this->setIsPress(true);
-    };
-    listener->onTouchEnded = [this](Touch *touch, Event *event) {
-    	this->setIsPress(false);
-    };
-    listener->onTouchCancelled = [this](Touch *touch, Event *event) {
-    	this->setIsPress(false);
-    };
-    this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, this);
 
 
     //=======================
@@ -135,10 +121,6 @@ bool GameScene::initWithLevel(int level)
     		//ヒットしたのが敵キャラだった場合
 	    	_state = GameState::RESULT;
     		this->onGameOver();
-//    	} else if(category & (int)Stage::TileType::COIN) {
-//    		//ヒットしたのがコインの場合
-//    		body->getNode()->removeFromParent();
-//    		_coin += 1;
     	}
     	return true;
     };
@@ -169,27 +151,6 @@ bool GameScene::initWithLevel(int level)
 	bakudan->setAnchorPoint(Vec2::ANCHOR_TOP_LEFT);
 	bakudan->setPosition(Vec2(10, winSize.height - 10));
     auto bakudanlistener = EventListenerTouchOneByOne::create();
-    bakudanlistener->onTouchBegan = [this](Touch *touch, Event *event) {
-        //target : ターゲットのスプライト
-        auto target = (Sprite*)event->getCurrentTarget();
-        //targetBox : タッチされたスプライトの領域
-        Rect targetBox = target->getBoundingBox();
-        //touchPoint : タッチされた場所
-        Point touchPoint = Vec2(touch->getLocation().x, touch->getLocation().y);
-        //touchPointがtargetBoxの中に含まれているか判定
-        if (targetBox.containsPoint(touchPoint)){
-        	if (_state == GameState::PLAYING){
-            	_state = GameState::RESULT;
-            	this->onGameOver();
-        	}
-        }
-    	return true;
-    };
-    bakudanlistener->onTouchEnded = [](Touch *touch, Event *event) {
-    };
-    bakudanlistener->onTouchCancelled = [](Touch *touch, Event *event) {
-    };
-    this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(bakudanlistener, bakudan);
 
     //=======================
     //ゲーム初期表示設定
@@ -207,23 +168,64 @@ bool GameScene::initWithLevel(int level)
 	auto blink = Blink::create(10,20);
 	ready->runAction(blink);
 
-    //タップするとゲームスタート
-    auto readylistener = EventListenerTouchOneByOne::create();
-    readylistener->onTouchBegan = [this](Touch *touch, Event *event) {
-    	_ready->removeFromParentAndCleanup(true);
-    	_state = GameState::PLAYING;
-    	_startTime = getSec();
-    	_second = 0;
-    	_stage->getPlayer()->setAcceleration(INITIAL_PLAYER_ACCELERATION);
-    	//メニューバックカラー非表示
-    	_menuground->setVisible(false);
+    //=======================
+    //画面をタッチしたときにタッチされている処理
+    //-----------------------
+    auto listener = EventListenerTouchOneByOne::create();
+    listener->onTouchBegan = [this](Touch *touch, Event *event) {
+    	if (_state == GameState::READY){
+    	    //=======================
+    		//タップするとゲームスタート
+    	    //-----------------------
+	    	_ready->removeFromParentAndCleanup(true);
+	    	_state = GameState::PLAYING;
+	    	_startTime = getSec();
+	    	_second = 0;
+	    	_stage->getPlayer()->setAcceleration(INITIAL_PLAYER_ACCELERATION);
+	    	//メニューバックカラー非表示
+	    	_menuground->setVisible(false);
+    	} else if (_state == GameState::PLAYING) {
+//           	log("onTouchBegan");
+    	    //=======================
+    		//爆弾にタップすると自爆
+    	    //-----------------------
+            //target : ターゲットのスプライト
+            auto target = (Sprite*)event->getCurrentTarget();
+            //targetBox : タッチされたスプライトの領域
+            Rect targetBox = target->getBoundingBox();
+            //touchPoint : タッチされた場所
+            Point touchPoint = Vec2(touch->getLocation().x, touch->getLocation().y);
+            //touchPointがtargetBoxの中に含まれているか判定
+            if (targetBox.containsPoint(touchPoint)){
+            	if (_state == GameState::PLAYING){
+                	_state = GameState::RESULT;
+                	this->onGameOver();
+            	}
+            }
+    	}
     	return true;
     };
-    readylistener->onTouchEnded = [this](Touch *touch, Event *event) {
+    listener->onTouchMoved = [this](Touch *touch, Event *event) {
+    	if (_state == GameState::PLAYING){
+//           	log("onTouchMoved");
+    	    //=======================
+    		//　タッチしたスクリーンの座標をステージの座標にコンバート
+    	    //-----------------------
+	    	_touchPoint = _stage->convertTouchToNodeSpace(touch);
+	    	this->setIsPress(true);
+//			log("t.x=%.1f,t.y=%.1f",_touchPoint.x,_touchPoint.y);
+    	}
     };
-    readylistener->onTouchCancelled = [this](Touch *touch, Event *event) {
+    listener->onTouchEnded = [this](Touch *touch, Event *event) {
+//   	log("onTouchEnded");
+    	this->setIsPress(false);
     };
-    this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(readylistener, ready);
+    listener->onTouchCancelled = [this](Touch *touch, Event *event) {
+//       	log("onTouchCancelled");
+    	this->setIsPress(false);
+    };
+//    this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, this);
+    this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, bakudan);
 
     this->scheduleUpdate();
 
@@ -234,10 +236,10 @@ bool GameScene::initWithLevel(int level)
  *
  */
 void GameScene::update(float dt){
-	//スタートしたとき
 	if (_state == GameState::PLAYING){
-		//画面がタップされている間
-
+	    //=======================
+		//ゲーム中
+	    //-----------------------
 		//ゲームがスタートしていたらタイム計測
 		_second = getSec() - _startTime;
 	    _secondLabel->setString(StringUtils::format("%6.3lf", _second));
@@ -248,7 +250,8 @@ void GameScene::update(float dt){
 	    auto stageSize = _stage->getTiledMap()->getContentSize();
 		if (this->getIsPress()){
 		    //タップしたスクリーンの位置をステージの位置に変換!!すげー便利!!
-		    auto stageTouch = _stage->convertToNodeSpace(_touchPoint);
+//		    auto stageTouch = _stage->convertToNodeSpace(_touchPoint);
+			auto stageTouch  = _touchPoint;
 			//TODO 計算するよ
 			float xPoint=0.0;
 			float yPoint=0.0;
@@ -258,18 +261,19 @@ void GameScene::update(float dt){
 			stageTouch.y < playerPoint.y ? yPoint = -360 : yPoint = 180;
 			//プレイヤーに推進力を与える
 			_stage->getPlayer()->getPhysicsBody()->applyImpulse(Vec2(xPoint,yPoint));
-//			log("stageTouch.x=%f,stageTouch.y=%f",stageTouch.y,stageTouch.y);
-//			log("playerPoint.x=%f,playerPoint.y=%f",playerPoint.y,playerPoint.y);
+//			log("p.x=%.1f,p.y=%.1f,t.x=%.1f,t.y=%.1f,s.x=%.1f,s.y=%.1f",playerPoint.x,playerPoint.y,_touchPoint.x,_touchPoint.y,xPoint,yPoint);
 
 		}
 
-		//回転
+	    //=======================
+		//キャラクター回転
+	    //-----------------------
 		auto velocity = _stage->getPlayer()->getPhysicsBody()->getVelocity();
 		float bulletAngle = velocity.getAngle(Vec2(1,0));
 		float angle = CC_RADIANS_TO_DEGREES(bulletAngle);
 
 		_stage->getPlayer()->setRotation(angle + 90);
-		const auto margin = 50;
+		const auto margin = 20;
 		//プレイヤーの位置が画面下にでたらゲームオーバーを呼び出す
 		if (playerPoint.y < -margin) {
 			//何度も呼ばれることを防ぐために、プレイヤーがステージ内にいること
@@ -290,13 +294,11 @@ void GameScene::update(float dt){
 	    	this->onGameOver();
 	    }
 	}
-//	this->getCoinLavel()->setString(StringUtils::toString(_coin));
-	//TODO 重いので・・・・
 	_parallaxNode->setPosition(_stage->getPlayer()->getPosition() * -1);
 }
 
 /**
- *
+ * ゲームオーバーメソッド
  */
 void GameScene::onGameOver(){
 	//プレイヤーをステージから削除
@@ -341,7 +343,7 @@ void GameScene::onGameOver(){
 }
 
 /**
- *
+ * ゲームクリアメソッド
  */
 void GameScene::onGameClear(){
 	//プレイヤーをステージから削除
@@ -375,8 +377,7 @@ void GameScene::onGameClear(){
 	auto tweetItem = MenuItemImage::create("tweet.png","tweet_pressed.png",
 			[this](Ref *sender){
 //				Application::getInstance()->openURL("http://www.google.co.jp");
-//				auto tweetString = StringUtils::format("ステージ%02dでスコア %6.3lf でクリアしました。 #TapTheDolphin", _thisLevel,_second);
-				auto tweetString = StringUtils::format("テストー　ステージ%02d＝%6.3lf #TapTheDolphin", _thisLevel,_second);
+				auto tweetString = StringUtils::format("ゲーム「Tap The Drolphin」のステージ%02dでタイム %6.3lf でクリアしました。 #TapTheDolphin", _thisLevel,_second);
 				Application::getInstance()->openTweetDialog(tweetString.c_str());
 	});
 	auto menu = Menu::create(menuItem, selectItem, tweetItem,nullptr);
@@ -409,7 +410,7 @@ void GameScene::onGameClear(){
     secondLabel->enableOutline(Color4B::BLACK, 1.5);
 
     auto highLabel = Label::createWithSystemFont(
-    		"!!! NEW GAME THANK YOU !!!",
+    		"　",
     		"Marker Felt",
     		40);
 	if (isHigh){
@@ -433,7 +434,6 @@ void GameScene::onGameClear(){
 	menuTime->setPosition(Vec2(winSize.width / 2.0, winSize.height /2.0));
 
 }
-
 
 /**
  * 時間計測メソッド

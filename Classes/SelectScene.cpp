@@ -6,7 +6,7 @@ USING_NS_CC;
 //ステージファイル名のフォーマット
 const char* STAGE_IMG_FORMAT="stage%02d.png";
 const char* STAGE_IMG_PRESSED_FORMAT="stage%02d_pressed.png";
-const int MAX_STAGE = 4;
+const int MAX_STAGE = 5;
 // ハイスコア格納用のキー
 const char* HIGHSCORE_KEY_STAGE = "highscore_key%02d";
 //
