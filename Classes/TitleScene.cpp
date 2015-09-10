@@ -1,6 +1,7 @@
 #include "TitleScene.h"
 #include "SelectScene.h"
 #include "InfoScene.h"
+#include "PlayerScene.h"
 
 USING_NS_CC;
 
@@ -64,13 +65,21 @@ bool TitleScene::init()
 
 	});
 	infoItem->setAnchorPoint(Vec2::ANCHOR_TOP_LEFT);
+    //pleyerボタン
+	auto playerItem = MenuItemImage::create("common_btn_player.png","common_btn_player_pressed.png",
+			[this](Ref *sender){
+				auto scene = PlayerScene::createScene();
+				auto transition = TransitionFade::create(0.5, scene);
+				Director::getInstance()->replaceScene(transition);
 
-	auto menu = Menu::create(selectItem, infoItem, nullptr);
+	});
+	playerItem->setAnchorPoint(Vec2::ANCHOR_TOP_LEFT);
+
+	auto menu = Menu::create(selectItem, infoItem, playerItem, nullptr);
 	menu->alignItemsVerticallyWithPadding(15);
 	menu->setPosition(Vec2(25, winSize.height - 250));
 
 	this->addChild(menu);
-
 
 	return true;
 }

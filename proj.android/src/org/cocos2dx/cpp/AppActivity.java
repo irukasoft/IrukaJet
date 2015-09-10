@@ -55,7 +55,7 @@ public class AppActivity extends Cocos2dxActivity {
      */
     public static void openTweetDialog(String tweet)
     {
-    	String url = String.format("http://twitter.com/home?status=%s", tweet);
+    	String url = String.format("http://twitter.com/intent/tweet?text=%s", tweet);
     	url = url.replaceAll("#", "%23");
     	
     	Intent i = new Intent(Intent.ACTION_VIEW,Uri.parse(url));

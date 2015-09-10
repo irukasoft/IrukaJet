@@ -16,12 +16,25 @@ const int ACCELERATION_LIMIT_LEFT = -45;
 //初期ジェット加速度
 //const Vec2 INITIAL_ACCELERATION = Vec2(0, 200);
 
+//プレイヤーファイル名のフォーマット
+const char* PLAYER_FILE_FORMAT="player%02d.png";
+// ハイスコア格納用のキー
+const char* PLAYER_SELECT_KEY = "player_key";
+
 bool Player::init()
 {
-    if (!Sprite::initWithFile("player.png")) {
+	//セーブされたプレイヤーレベルを取得
+    auto selectkey = UserDefault::getInstance()->getIntegerForKey(PLAYER_SELECT_KEY);
+    if(selectkey == 0) {
+    	selectkey= 2; //デフォルトはイルカ！
+    }
+	_level = selectkey;
+	//
+	 auto playerFile = StringUtils::format(PLAYER_FILE_FORMAT, _level);
+    if (!Sprite::initWithFile(playerFile)) {
     	return false;
     }
-    //１フレームの画像サイズを取得する(６フレームキャラクター）
+    //１フレームの画像サイズを取得する(4フレームキャラクター）
     auto frameSize = Size(this->getContentSize().width / FRAME_COUNT,
     		this->getContentSize().height);
 
@@ -31,7 +44,7 @@ bool Player::init()
     Vector<SpriteFrame *> frames;
     for(int i=0; i < FRAME_COUNT; ++i){
     	//一コマずつアニメーションを作成
-    	auto frame = SpriteFrame::create("player.png",
+    	auto frame = SpriteFrame::create(playerFile,
     			Rect(frameSize.width * i,0,frameSize.width, frameSize.height));
     	frames.pushBack(frame);
     }
@@ -66,18 +79,50 @@ void Player::update(float dt){
 	this->getPhysicsBody()->applyImpulse(_acceleration);
     // 加速度のLIMITの設定
     auto v = this->getPhysicsBody()->getVelocity();
-    if (v.y > ACCELERATION_LIMIT_UP) {
-        v.y = ACCELERATION_LIMIT_UP;
+    if (v.y > getAccelerationLimitMax().y) {
+        v.y = getAccelerationLimitMax().y;
     }
-    if (v.y < ACCELERATION_LIMIT_BTM) {
-        v.y = ACCELERATION_LIMIT_BTM;
+    if (v.y < getAccelerationLimitMin().y) {
+        v.y = getAccelerationLimitMin().y;
     }
-    if (v.x > ACCELERATION_LIMIT_RIGHT) {
-        v.x = ACCELERATION_LIMIT_RIGHT;
+    if (v.x > getAccelerationLimitMax().x) {
+        v.x = getAccelerationLimitMax().x;
     }
-    if (v.x < ACCELERATION_LIMIT_LEFT) {
-        v.x = ACCELERATION_LIMIT_LEFT;
+    if (v.x < getAccelerationLimitMin().x) {
+        v.x = getAccelerationLimitMin().y;
     }
     this->getPhysicsBody()->setVelocity(v);
 }
 
+//キャラクターによってリミットのスピードを
+Vec2 Player::getAccelerationLimitMax(){
+	auto limit = Vec2(45, 45);
+	switch(_level){
+	case 1:
+		limit = Vec2(35, 35);
+		break;
+	case 2:
+		limit = Vec2(45, 45);
+		break;
+	case 3:
+		limit = Vec2(55, 55);
+		break;
+	}
+	return limit;
+}
+
+Vec2 Player::getAccelerationLimitMin(){
+	auto limit = Vec2(-45, -45);
+	switch(_level){
+	case 1:
+		limit = Vec2(-35, -35);
+		break;
+	case 2:
+		limit = Vec2(-45, -45);
+		break;
+	case 3:
+		limit = Vec2(-55, -55);
+		break;
+	}
+	return limit;
+}

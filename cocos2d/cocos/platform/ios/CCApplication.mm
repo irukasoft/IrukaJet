@@ -32,6 +32,8 @@
 #import "CCGeometry.h"
 #import "CCDirectorCaller.h"
 
+#import <Twitter/Twitter.h>
+
 NS_CC_BEGIN
 
 Application* Application::sm_pSharedApplication = 0;
@@ -179,10 +181,28 @@ void Application::openURL(const char *urlStr) {
 }
 void Application::openTweetDialog(const char *urlStr) {
     NSString* tweet = [NSString stringWithUTF8String:urlStr];
-    tweet = [NSString stringWithFormat:@"http://twitter.com/home?status=%@",tweet];
-    tweet = [tweet stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    NSURL *url = [NSURL URLWithString:tweet];
-    [[UIApplication sharedApplication] openURL:url];
+//    tweet = [NSString stringWithFormat:@"http://twitter.com/home?status=%@",tweet];
+//    tweet = [tweet stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+//    NSURL *url = [NSURL URLWithString:tweet];
+//    [[UIApplication sharedApplication] openURL:url];
+    
+    if([TWTweetComposeViewController canSendTweet]){
+        UIViewController *myViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
+        TWTweetComposeViewController *twitterVC = [[TWTweetComposeViewController alloc]init];
+        [twitterVC setInitialText: tweet];
+        
+        twitterVC.completionHandler = ^(TWTweetComposeViewControllerResult res){
+            [myViewController dismissViewControllerAnimated:YES completion: nil];
+        };
+        
+        [myViewController presentViewController: twitterVC animated:YES completion: nil];
+    }else{
+        tweet = [NSString stringWithFormat: @"%@%@",@"http://twitter.com/intent/tweet?text=",tweet];
+        tweet = [tweet stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        [[UIApplication sharedApplication]openURL:[NSURL URLWithString:tweet]];
+    }
+    tweet = nil;
+    
 }
 
 NS_CC_END

@@ -16,6 +16,7 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
                    ../../Classes/SelectScene.cpp \
                    ../../Classes/GameScene.cpp \
                    ../../Classes/InfoScene.cpp \
+                   ../../Classes/PlayerScene.cpp \
                    ../../Classes/Stage.cpp \
                    ../../Classes/Player.cpp
 

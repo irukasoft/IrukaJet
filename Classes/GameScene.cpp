@@ -150,7 +150,6 @@ bool GameScene::initWithLevel(int level)
 	bakudan->setScale(0.4f);
 	bakudan->setAnchorPoint(Vec2::ANCHOR_TOP_LEFT);
 	bakudan->setPosition(Vec2(10, winSize.height - 10));
-    auto bakudanlistener = EventListenerTouchOneByOne::create();
 
     //=======================
     //ゲーム初期表示設定
@@ -202,6 +201,11 @@ bool GameScene::initWithLevel(int level)
                 	this->onGameOver();
             	}
             }
+    	    //=======================
+    		//　タッチしたスクリーンの座標をステージの座標にコンバート
+    	    //-----------------------
+	    	_touchPoint = _stage->convertTouchToNodeSpace(touch);
+	    	this->setIsPress(true);
     	}
     	return true;
     };
@@ -377,7 +381,7 @@ void GameScene::onGameClear(){
 	auto tweetItem = MenuItemImage::create("tweet.png","tweet_pressed.png",
 			[this](Ref *sender){
 //				Application::getInstance()->openURL("http://www.google.co.jp");
-				auto tweetString = StringUtils::format("ゲーム「Tap The Drolphin」のステージ%02dでタイム %6.3lf でクリアしました。 #TapTheDolphin", _thisLevel,_second);
+				auto tweetString = StringUtils::format("ゲーム「Tap The Dolphin」のステージ%02dでタイム %6.3lf でクリアしました。 #TapTheDolphin", _thisLevel,_second);
 				Application::getInstance()->openTweetDialog(tweetString.c_str());
 	});
 	auto menu = Menu::create(menuItem, selectItem, tweetItem,nullptr);

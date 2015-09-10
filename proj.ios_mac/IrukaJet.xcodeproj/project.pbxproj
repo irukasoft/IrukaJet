@@ -60,15 +60,17 @@
 		50EF629917ECD46A001EB2F8 /* Icon-100.png in Resources */ = {isa = PBXBuildFile; fileRef = 50EF629517ECD46A001EB2F8 /* Icon-100.png */; };
 		50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */ = {isa = PBXBuildFile; fileRef = 50EF62A017ECD613001EB2F8 /* Icon-29.png */; };
 		50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 50EF62A117ECD613001EB2F8 /* Icon-50.png */; };
+		89C98BB31B9F048800706377 /* PlayerScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 89C98BB11B9F048800706377 /* PlayerScene.cpp */; };
 		89CAD0E51B92C64000BA902C /* map in Resources */ = {isa = PBXBuildFile; fileRef = 89CAD0E41B92C64000BA902C /* map */; };
 		89CAD0F41B92C7FB00BA902C /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 89CAD0E61B92C7FB00BA902C /* GameScene.cpp */; };
 		89CAD0F51B92C7FB00BA902C /* InfoScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 89CAD0E81B92C7FB00BA902C /* InfoScene.cpp */; };
 		89CAD0F61B92C7FB00BA902C /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 89CAD0EA1B92C7FB00BA902C /* Player.cpp */; };
-		89CAD0F71B92C7FB00BA902C /* ResultScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 89CAD0EC1B92C7FB00BA902C /* ResultScene.cpp */; };
 		89CAD0F81B92C7FB00BA902C /* SelectScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 89CAD0EE1B92C7FB00BA902C /* SelectScene.cpp */; };
 		89CAD0F91B92C7FB00BA902C /* Stage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 89CAD0F01B92C7FB00BA902C /* Stage.cpp */; };
 		89CAD0FA1B92C7FB00BA902C /* TitleScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 89CAD0F21B92C7FB00BA902C /* TitleScene.cpp */; };
 		89CAD0FC1B92C88100BA902C /* images in Resources */ = {isa = PBXBuildFile; fileRef = 89CAD0FB1B92C88100BA902C /* images */; };
+		89F1E88A1B982CFC00535E63 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89F1E8891B982CFC00535E63 /* Twitter.framework */; };
+		89F1E88C1B9839CE00535E63 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89F1E88B1B9839CE00535E63 /* Images.xcassets */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
 		BF1C47F01293687400B63C5D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1C47EA1293683800B63C5D /* QuartzCore.framework */; };
@@ -265,6 +267,8 @@
 		50EF629517ECD46A001EB2F8 /* Icon-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-100.png"; sourceTree = "<group>"; };
 		50EF62A017ECD613001EB2F8 /* Icon-29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-29.png"; sourceTree = "<group>"; };
 		50EF62A117ECD613001EB2F8 /* Icon-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-50.png"; sourceTree = "<group>"; };
+		89C98BB11B9F048800706377 /* PlayerScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PlayerScene.cpp; sourceTree = "<group>"; };
+		89C98BB21B9F048800706377 /* PlayerScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerScene.h; sourceTree = "<group>"; };
 		89CAD0E41B92C64000BA902C /* map */ = {isa = PBXFileReference; lastKnownFileType = folder; path = map; sourceTree = "<group>"; };
 		89CAD0E61B92C7FB00BA902C /* GameScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameScene.cpp; path = ../Classes/GameScene.cpp; sourceTree = "<group>"; };
 		89CAD0E71B92C7FB00BA902C /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameScene.h; path = ../Classes/GameScene.h; sourceTree = "<group>"; };
@@ -272,8 +276,6 @@
 		89CAD0E91B92C7FB00BA902C /* InfoScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InfoScene.h; path = ../Classes/InfoScene.h; sourceTree = "<group>"; };
 		89CAD0EA1B92C7FB00BA902C /* Player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Player.cpp; path = ../Classes/Player.cpp; sourceTree = "<group>"; };
 		89CAD0EB1B92C7FB00BA902C /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Player.h; path = ../Classes/Player.h; sourceTree = "<group>"; };
-		89CAD0EC1B92C7FB00BA902C /* ResultScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ResultScene.cpp; path = ../Classes/ResultScene.cpp; sourceTree = "<group>"; };
-		89CAD0ED1B92C7FB00BA902C /* ResultScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ResultScene.h; path = ../Classes/ResultScene.h; sourceTree = "<group>"; };
 		89CAD0EE1B92C7FB00BA902C /* SelectScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SelectScene.cpp; path = ../Classes/SelectScene.cpp; sourceTree = "<group>"; };
 		89CAD0EF1B92C7FB00BA902C /* SelectScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectScene.h; path = ../Classes/SelectScene.h; sourceTree = "<group>"; };
 		89CAD0F01B92C7FB00BA902C /* Stage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Stage.cpp; path = ../Classes/Stage.cpp; sourceTree = "<group>"; };
@@ -281,6 +283,8 @@
 		89CAD0F21B92C7FB00BA902C /* TitleScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TitleScene.cpp; path = ../Classes/TitleScene.cpp; sourceTree = "<group>"; };
 		89CAD0F31B92C7FB00BA902C /* TitleScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TitleScene.h; path = ../Classes/TitleScene.h; sourceTree = "<group>"; };
 		89CAD0FB1B92C88100BA902C /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = images; sourceTree = "<group>"; };
+		89F1E8891B982CFC00535E63 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.4.sdk/System/Library/Frameworks/Twitter.framework; sourceTree = DEVELOPER_DIR; };
+		89F1E88B1B9839CE00535E63 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "IrukaJet iOS/Images.xcassets"; sourceTree = SOURCE_ROOT; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		BF1C47EA1293683800B63C5D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -295,6 +299,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89F1E88A1B982CFC00535E63 /* Twitter.framework in Frameworks */,
 				1AC6FB2E180E99EB004C840B /* libbox2d iOS.a in Frameworks */,
 				1AC6FB2F180E99EB004C840B /* libchipmunk iOS.a in Frameworks */,
 				1AC6FB30180E99EB004C840B /* libcocos2dx iOS.a in Frameworks */,
@@ -357,14 +362,14 @@
 		15AA9C4015B7EC450033D6C2 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				89C98BB11B9F048800706377 /* PlayerScene.cpp */,
+				89C98BB21B9F048800706377 /* PlayerScene.h */,
 				89CAD0E61B92C7FB00BA902C /* GameScene.cpp */,
 				89CAD0E71B92C7FB00BA902C /* GameScene.h */,
 				89CAD0E81B92C7FB00BA902C /* InfoScene.cpp */,
 				89CAD0E91B92C7FB00BA902C /* InfoScene.h */,
 				89CAD0EA1B92C7FB00BA902C /* Player.cpp */,
 				89CAD0EB1B92C7FB00BA902C /* Player.h */,
-				89CAD0EC1B92C7FB00BA902C /* ResultScene.cpp */,
-				89CAD0ED1B92C7FB00BA902C /* ResultScene.h */,
 				89CAD0EE1B92C7FB00BA902C /* SelectScene.cpp */,
 				89CAD0EF1B92C7FB00BA902C /* SelectScene.h */,
 				89CAD0F01B92C7FB00BA902C /* Stage.cpp */,
@@ -421,6 +426,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				89F1E8891B982CFC00535E63 /* Twitter.framework */,
 				D6B0611A1803AB670077942B /* CoreMotion.framework */,
 				503AE11A17EB9C5A00D1A890 /* IOKit.framework */,
 				503AE11117EB99EE00D1A890 /* libcurl.dylib */,
@@ -488,6 +494,7 @@
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				89F1E88B1B9839CE00535E63 /* Images.xcassets */,
 				89CAD0FB1B92C88100BA902C /* images */,
 				89CAD0E41B92C64000BA902C /* map */,
 				1AFAF8B916D35E4900DB1158 /* CloseNormal.png */,
@@ -677,6 +684,7 @@
 				89CAD0FC1B92C88100BA902C /* images in Resources */,
 				1AFAF8BE16D35E4900DB1158 /* HelloWorld.png in Resources */,
 				50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */,
+				89F1E88C1B9839CE00535E63 /* Images.xcassets in Resources */,
 				50EF629617ECD46A001EB2F8 /* Icon-40.png in Resources */,
 				5087E78217EB970100C73F5D /* Icon-144.png in Resources */,
 				50EF629817ECD46A001EB2F8 /* Icon-80.png in Resources */,
@@ -710,8 +718,8 @@
 				89CAD0F41B92C7FB00BA902C /* GameScene.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				89CAD0FA1B92C7FB00BA902C /* TitleScene.cpp in Sources */,
+				89C98BB31B9F048800706377 /* PlayerScene.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
-				89CAD0F71B92C7FB00BA902C /* ResultScene.cpp in Sources */,
 				89CAD0F81B92C7FB00BA902C /* SelectScene.cpp in Sources */,
 				1AFAF8B716D35DE700DB1158 /* AppDelegate.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
@@ -787,7 +795,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer: yoshikazu ohseto (6XZ368JH24)";
 				COMPRESS_PNG_FILES = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
@@ -806,9 +816,9 @@
 					"$(SRCROOT)/../cocos2d/cocos/platform/ios/Simulation",
 				);
 				INFOPLIST_FILE = ios/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
 				LIBRARY_SEARCH_PATHS = "";
-				PROVISIONING_PROFILE = "3f07976d-e979-45db-a1ba-23699a2f3091";
+				PROVISIONING_PROFILE = "d8409404-b2fa-4fef-a561-f7953945566c";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
@@ -819,7 +829,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer: yoshikazu ohseto (6XZ368JH24)";
 				COMPRESS_PNG_FILES = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -836,9 +848,9 @@
 					"$(SRCROOT)/../cocos2d/cocos/platform/ios/Simulation",
 				);
 				INFOPLIST_FILE = ios/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
 				LIBRARY_SEARCH_PATHS = "";
-				PROVISIONING_PROFILE = "3f07976d-e979-45db-a1ba-23699a2f3091";
+				PROVISIONING_PROFILE = "d8409404-b2fa-4fef-a561-f7953945566c";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
